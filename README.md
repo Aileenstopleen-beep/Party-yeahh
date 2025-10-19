@@ -7,39 +7,114 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 body {
-  margin:0; font-family:'Press Start 2P',cursive;
-  background-image:url('https://i.ibb.co/0F6Zy7r/pixel-park.png');
-  background-size:cover; background-position:center;
-  color:#3e3e3e; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; min-height:100vh;
-  overflow:hidden;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
 }
-.page{display:none;text-align:center;padding:20px;background:rgba(255,255,255,0.6);border-radius:10px;}
-.active{display:block;}
-button{padding:10px 20px;margin:10px;font-family:inherit;font-size:12px;border:none;background-color:#c49a6c;color:#fff;border-radius:5px;cursor:pointer;}
-.cards-container,.game2-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:20px;}
-.card{width:80px;height:80px;background:#fff;display:flex;justify-content:center;align-items:center;cursor:pointer;font-size:30px;border:2px solid #3e3e3e;}
-.hidden-card{background-color:#a58a5c;}
-input{padding:8px;font-size:12px;margin:10px 0;width:200px;}
-.confetti{width:30px;height:30px;border-radius:50%;position:absolute;cursor:pointer;animation:fall linear forwards;}
-@keyframes fall{0%{transform:translateY(-30px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(360deg);opacity:0;}}
-.leaf{position:absolute;top:0;width:40px;height:40px;background-image:url('https://i.ibb.co/K6mGfJd/pixel-leaf.png');background-size:cover;animation:float 15s linear infinite;}
-@keyframes float{0%{transform:translateX(100vw) translateY(0) rotate(0deg);}100%{transform:translateX(-50px) translateY(200px) rotate(360deg);}}
+.page {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 10px;
+}
+.active { display: block; }
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: inherit;
+  font-size: 12px;
+  border: none;
+  background-color: #c49a6c;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cards-container, .game2-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.card {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 30px;
+  border: 2px solid #3e3e3e;
+}
+.hidden-card { background-color: #a58a5c; }
+input {
+  padding: 8px;
+  font-size: 12px;
+  margin: 10px 0;
+  width: 200px;
+}
+.confetti {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  0% { transform: translateY(-30px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+.leaf {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://i.ibb.co/K6mGfJd/pixel-leaf.png');
+  background-size: cover;
+  animation: float 15s linear infinite;
+}
+@keyframes float {
+  0% { transform: translateX(100vw) translateY(0) rotate(0deg); }
+  100% { transform: translateX(-50px) translateY(200px) rotate(360deg); }
+}
+.page-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.page-bg.active-bg { opacity: 1; }
 </style>
 </head>
 <body>
 
-<audio id="bg-music" src="https://freesound.org/data/previews/541/541603_11942583-lq.mp3" autoplay loop></audio>
-<div class="leaf" style="animation-delay:0s;"></div>
-<div class="leaf" style="animation-delay:3s;"></div>
-<div class="leaf" style="animation-delay:6s;"></div>
+<!-- Backgrounds -->
+<div id="bg1" class="page-bg active-bg" style="background-image:url('https://i.postimg.cc/bNgTz2H0/huya.png');"></div>
+<div id="bg2" class="page-bg" style="background-image:url('https://i.postimg.cc/rF7P648P/yessir.png');"></div>
+<div id="bg3" class="page-bg" style="background-image:url('https://i.postimg.cc/PJvrxD0Y/cake.png');"></div>
+<div id="bg4" class="page-bg" style="background-image:url('https://i.postimg.cc/X7ym2LwB/game.png');"></div>
+<div id="bg5" class="page-bg" style="background-image:url('https://i.postimg.cc/L6Ffgk3B/wel.png');"></div>
+<div id="bg6" class="page-bg" style="background-image:url('https://i.postimg.cc/0jyN7Qrz/party-yeah.png');"></div>
+<div id="bg7" class="page-bg" style="background-image:url('https://i.postimg.cc/YSgcywTj/sad-huhu.png');"></div>
+<div id="bg8" class="page-bg" style="background-image:url('https://i.postimg.cc/QMR8HmZ5/bye-bye.png');"></div>
+<div id="bg9" class="page-bg" style="background-image:url('https://i.postimg.cc/Qd9vH3N3/sad.png');"></div>
 
 <!-- Page 1 -->
-<div id="page1" class="page active">
-  <h1>Sweet 17 Party</h1>
-  <h3>Board game party</h3>
-  <img src="https://i.ibb.co/0GQZ0F3/pixel-girl.png" width="120">
-  <br><button onclick="nextPage(2)">Start</button>
+<div id="page1" class="page active" style="background:none; display:flex; flex-direction:column; justify-content:flex-end; height:100vh;">
+  <button style="margin-bottom:40px;" onclick="nextPage(2)">Start</button>
 </div>
 
 <!-- Page 2: Game 1 -->
@@ -84,16 +159,16 @@ input{padding:8px;font-size:12px;margin:10px 0;width:200px;}
 
 <!-- Page 5: Info -->
 <div id="page5" class="page">
-  <p style="font-size:10px;">Location: Jl. Ngagel Jaya Utara No.41, Pucang Sewu, Kec. Gubeng, Surabaya, Jawa Timur 60283</p>
-  <p style="font-size:10px;">Date: Saturday 15 November 2025</p>
-  <p style="font-size:10px;">Time: 15.00 - Tired</p>
-  <p style="font-size:10px;">Dresscode: Pajama (or anything but comfortable)</p>
+  <p>Location: Jl. Ngagel Jaya Utara No.41, Surabaya</p>
+  <p>Date: Saturday 15 November 2025</p>
+  <p>Time: 15.00 - Tired</p>
+  <p>Dresscode: Pajama (or anything comfy)</p>
   <h2>Would you join??</h2>
   <button onclick="nextPage(6)">Yes</button>
   <button onclick="nextPage(7)">No</button>
 </div>
 
-<!-- Page 6: RSVP Name -->
+<!-- Page 6 -->
 <div id="page6" class="page">
   <h2>Fill your name</h2>
   <form id="rsvpFormName">
@@ -102,7 +177,7 @@ input{padding:8px;font-size:12px;margin:10px 0;width:200px;}
   </form>
 </div>
 
-<!-- Page 7: RSVP Reason -->
+<!-- Page 7 -->
 <div id="page7" class="page">
   <h2>OH NO WHYYY</h2>
   <form id="rsvpFormReason">
@@ -111,50 +186,63 @@ input{padding:8px;font-size:12px;margin:10px 0;width:200px;}
   </form>
 </div>
 
-<!-- Page 8: End -->
-<div id="page8" class="page" style="position: relative; overflow: hidden; height: 80vh;">
-  <h1>THATS THE END</h1>
+<!-- Page 8 -->
+<div id="page8" class="page">
+  <h1>THAT'S THE END</h1>
   <h2>WELCOME TO AILEEN'S SWEET 17TH PARTY</h2>
 </div>
 
 <!-- Page 9 -->
 <div id="page9" class="page">
-  <h1>THATS OKAY</h1>
-  <h2>HAVE A NICE DAY ❤️❤️</h2>
+  <h1>THAT'S OKAY</h1>
+  <h2>HAVE A NICE DAY ❤️</h2>
 </div>
 
 <script>
-/* --- Navigation --- */
 function nextPage(pageNum){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page'+pageNum).classList.add('active');
+
+  document.querySelectorAll('.page-bg').forEach(bg=>bg.classList.remove('active-bg'));
+  const bg=document.getElementById('bg'+pageNum);
+  if(bg) bg.classList.add('active-bg');
+
   if(pageNum===4){ spawnConfetti(); }
 }
 
-/* --- Game 1 --- */
 function checkCard(result){
   const text=document.getElementById('game1-text');
   const buttonsDiv=document.getElementById('game1-buttons');
   buttonsDiv.innerHTML='';
-  if(result==='right'){ text.innerText='Yayy congratulations'; buttonsDiv.innerHTML='<button onclick="nextPage(3)">Next</button>'; }
-  else{ buttonsDiv.innerHTML='<button onclick="tryAgainGame1()">Try Again</button>'; }
+  if(result==='right'){
+    text.innerText='Yayy congratulations';
+    buttonsDiv.innerHTML='<button onclick="nextPage(3)">Next</button>';
+  } else {
+    buttonsDiv.innerHTML='<button onclick="tryAgainGame1()">Try Again</button>';
+  }
 }
-function tryAgainGame1(){ document.getElementById('game1-text').innerText='Pick a card'; document.getElementById('game1-buttons').innerHTML=''; }
+function tryAgainGame1(){
+  document.getElementById('game1-text').innerText='Pick a card';
+  document.getElementById('game1-buttons').innerHTML='';
+}
 
-/* --- Game 2 --- */
-let firstCard=null; let lock=false; let matched=0;
+let firstCard=null, lock=false, matched=0;
 const pairsContent={1:'🐧',2:'⭐️',3:'🎁',4:'🎀',5:'🎲',6:'❤️'};
 function flipCard(card){
   if(lock||card.classList.contains('flipped')) return;
-  card.classList.add('flipped'); card.innerText=pairsContent[card.dataset.pair];
-  if(!firstCard){ firstCard=card; } 
-  else{
+  card.classList.add('flipped');
+  card.innerText=pairsContent[card.dataset.pair];
+  if(!firstCard){ firstCard=card; }
+  else {
     lock=true;
     setTimeout(()=>{
-      if(firstCard.dataset.pair===card.dataset.pair){ matched+=2; firstCard=null; lock=false;
-        if(matched===12){ document.getElementById('game2-text').innerText='You Did It';
-        document.getElementById('game2-buttons').innerHTML='<button onclick="nextPage(4)">Next</button>'; }
-      } else{
+      if(firstCard.dataset.pair===card.dataset.pair){
+        matched+=2; firstCard=null; lock=false;
+        if(matched===12){
+          document.getElementById('game2-text').innerText='You Did It!';
+          document.getElementById('game2-buttons').innerHTML='<button onclick="nextPage(4)">Next</button>';
+        }
+      } else {
         firstCard.innerText='?'; card.innerText='?';
         firstCard.classList.remove('flipped'); card.classList.remove('flipped');
         firstCard=null; lock=false;
@@ -163,8 +251,7 @@ function flipCard(card){
   }
 }
 
-/* --- Game 3 Confetti --- */
-let score=0; let confettiInterval;
+let score=0, confettiInterval;
 function spawnConfetti(){
   clearInterval(confettiInterval);
   createConfettiBatch();
@@ -172,28 +259,15 @@ function spawnConfetti(){
 }
 function createConfettiBatch(){
   for(let i=0;i<10;i++){
-    const c=document.createElement('div'); c.classList.add('confetti');
+    const c=document.createElement('div');
+    c.classList.add('confetti');
     c.style.backgroundColor=`hsl(${Math.random()*360},70%,60%)`;
-    c.style.left=Math.random()*90+'%'; c.style.animationDuration=3+Math.random()*2+'s';
+    c.style.left=Math.random()*90+'%';
+    c.style.animationDuration=3+Math.random()*2+'s';
     c.onclick=()=>{ c.remove(); score++; if(score>=10){ document.getElementById('game3-text').innerText='Yayy! You got 10!'; document.getElementById('game3-buttons').innerHTML='<button onclick="nextPage(5)">Next</button>'; clearInterval(confettiInterval); } };
     document.getElementById('page4').appendChild(c);
   }
 }
-
-/* --- RSVP forms via Web App (Twilio) --- */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzKEo2EaSCkA3IHPJWOYRapsCI-DHfv-5yRXfBem1Y6D30MusFrGVm6FNp9p_ditFbDvw/exec'; // ganti dengan URL Apps Script
-document.getElementById('rsvpFormName').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const data={name:e.target.name.value,reason:''};
-  await fetch(WEB_APP_URL,{method:'POST',body:JSON.stringify(data)});
-  nextPage(8);
-});
-document.getElementById('rsvpFormReason').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const data={name:'',reason:e.target.reason.value};
-  await fetch(WEB_APP_URL,{method:'POST',body:JSON.stringify(data)});
-  nextPage(9);
-});
 </script>
 </body>
 </html>
